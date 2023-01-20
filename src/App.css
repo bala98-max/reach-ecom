@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+body{
+  font-family: 'Edu VIC WA NT Beginner', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-div{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: left;
+  background: #192734;  
+  /* #227c3c -- green */
+  /* #eee3f1 -- white */
 }
 
-.App-link {
-  color: #61dafb;
+.logo-div{
+  width: 20%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo-div img{
+  border-radius: 20px;
+  border: 0px;
+  background-color: transparent;
+}
+
+.nav-div{
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-div input {
+  width: 50%;
+  margin: 45px;
+  box-sizing: border-box;
+  background: #eee3f1;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  font-size: 22px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+}
+
+.nav-div a {
+  padding: 60px 30px;
+  color: #227c3c;
+  font-size: 17px;
+  font-weight: bolder;
+  /* font-family: 'Edu VIC WA NT Beginner', cursive; */
+}
+
+.nav-div a:hover{
+  color: #eee3f1;
 }
