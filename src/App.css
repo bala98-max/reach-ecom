@@ -1,5 +1,6 @@
 body{
   font-family: 'Edu VIC WA NT Beginner', cursive;
+  background: #eee3f1;
 }
 
 
@@ -49,4 +50,34 @@ body{
 
 .nav-div a:hover{
   color: #eee3f1;
+}
+
+.dashboard{
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  margin: 100px auto;
+}
+
+.product-card{
+  padding: 50px;
+  cursor: pointer;
+}
+
+.product-content{
+    padding: 5px 5px 30px 5px;
+    border-radius: 3px;
+    border: 1.5px solid #eee3f1;
+    height: 45vh;
+    width: 19vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* background-color: #eee3f1; */
+}
+
+.product-card img{
+  height: 25vh;
+  width: 16vw;
+  padding: 8px;
 }
