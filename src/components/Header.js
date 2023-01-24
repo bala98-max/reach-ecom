@@ -9,7 +9,7 @@ export default function Header() {
             </div>
             <div className='nav-div'>
                 <input className='form-control' type="search" placeholder = "search" />
-                <Link className ="nav-link" to="#">Cart </Link> 
+                <Link className ="nav-link" to="/cart">Cart </Link> 
                 <Link className ="nav-link" to="/">Home </Link> 
                 <Link className ="nav-link" to="#">About </Link>
                 <Link className ="nav-link" to="#">Contact </Link>

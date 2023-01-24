@@ -64,7 +64,7 @@ body{
   cursor: pointer;
 }
 
-.product-content{
+.productcard-content{
     padding: 5px 5px 30px 5px;
     border-radius: 3px;
     border: 1.5px solid #eee3f1;
@@ -80,4 +80,41 @@ body{
   height: 25vh;
   width: 16vw;
   padding: 8px;
+}
+
+.productcard-body{
+  margin: 2px auto;
+  height: 45%;
+  width: 100%;
+  text-align: center;
+}
+
+.product-dashboard{
+  display: flex;
+  flex-wrap: wrap;
+  width: 55%;
+  height: 74vh;
+  margin: 47px auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-img{
+  width: 70%;
+  height: 70%;
+}
+
+.product-img img{
+  width: 100%;
+  height: 100%;
+}
+
+.product-body{
+  margin: 2px;
+  height: 70%;
+  width: 29%;
+  padding: 0px 0px 0px 40px;
+}
+.product-body h3{
+  text-decoration: underline;
 }
