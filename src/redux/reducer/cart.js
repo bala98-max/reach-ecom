@@ -7,9 +7,11 @@ export const cartSlice = createSlice({
     },
     reducers:{
         addItems:(state,{payload})=>{
+            console.log('payload-----',payload)
             state.list = [...state.list,payload]
-        }
-    }
+            console.log('state------',state.list)
+        },
+    },
 })
 
 export const {addItems} = cartSlice.actions;

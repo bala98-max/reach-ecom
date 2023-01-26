@@ -118,3 +118,23 @@ body{
 .product-body h3{
   text-decoration: underline;
 }
+
+.product-options{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
