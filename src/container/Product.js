@@ -12,7 +12,6 @@ export default function Product() {
     })
     const dispatch = useDispatch()
     const addTocart = ()=>{
-        console.log('addcart called')
         dispatch(addItems(item))
     }
   return (
@@ -31,7 +30,7 @@ export default function Product() {
             <div className='mt-4'>
                 {item.stock > 0 ? (
                     <>
-                        <button className='btn btn-outline-success'>Buy Now</button>
+                        <button className='btn btn-outline-success' style={{margin : "4px"}}>Buy Now</button>
                         <button className='ms-3 btn btn-outline-success' onClick={addTocart}>Add To Cart</button>
                     </>
                 ):(

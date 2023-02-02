@@ -1,6 +1,24 @@
 import React from 'react'
+import {priceDepQty, removeItems} from '../redux/reducer/cart'
+import { useDispatch } from 'react-redux';
 
-export default function ProductListprops(props) {
+export default function  ProductListprops(props) {
+    const dispatch = useDispatch()
+    const productCount= ()=>{
+        let count = document.getElementById('count').value;
+
+        // let price = props.price * ((100 - props.discountPercentage) / 100)
+        // let totalAmt = Math.round(count * price)
+        let totalAmt = props.price * count 
+        let obj = {...props}
+        obj.price = totalAmt
+        dispatch(priceDepQty(obj))
+    }
+    
+   
+    const RemoveFromCart = ()=>{
+        dispatch(removeItems(props))
+    }
 
   return (
     <div className='product-dashboard'>
@@ -12,13 +30,13 @@ export default function ProductListprops(props) {
         <div className='product-body'>
             <h3>{props.title}</h3>
             <h4>Brand : {props.brand}</h4>
-            <h4>Price : $ {props.price}</h4>
-            <h4>Discount : {props.discountPercentage}</h4>
+            <h4>Price : $ {props.amtDepQuty}</h4>
+            <h4>Discount : {props.discountPercentage} %</h4>
             <h4>Rating : {props.rating}</h4>
             <div className='mt-4'>
                 <div className='product-options'>
-                    <select className="form-select" style={{width:"30%",marginRight:"50px"}} aria-label=".form-select-sm example">
-                        <option selected value="1">1</option>
+                    <select id = "count" onChange={productCount} className="form-select" style={{width:"30%",marginRight:"50px"}} aria-label=".form-select-sm example">
+                        <option defaultValue={1} value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
@@ -28,7 +46,7 @@ export default function ProductListprops(props) {
                         <option value="8">8</option>
                         <option value="9">9</option>
                     </select>
-                    <button className="btn btn-danger" style={{width:"50px"}}><i class="fa fa-trash"></i></button>
+                    <button className="btn btn-danger" onClick={RemoveFromCart} style={{width:"50px"}}><i className="fa fa-trash"></i></button>
                 </div>
             </div>
         </div>
