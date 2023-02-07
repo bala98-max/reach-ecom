@@ -8,8 +8,15 @@ export default function Cart() {
     })
 
     return(
-        <>
-            {list.map(item => <ProductListItem key = {item.id} {...item}/>)}
-        </>
+        <div>
+                {list.length > 0 ? list.map(item => <ProductListItem key = {item.id} {...item}/>,
+            )
+            :
+                <div style={{height: '80vh'}}>
+                    <h3>Your Cart is Empty ! </h3>
+                    <p>Your shopping cart is waiting. Give it purpose – fill it with groceries, clothing, household supplies, electronics and more.</p>
+                </div>
+            }
+        </div>
     )
 }

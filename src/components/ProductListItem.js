@@ -1,8 +1,10 @@
 import React from 'react'
 import {priceDepQty, removeItems} from '../redux/reducer/cart'
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export default function  ProductListprops(props) {
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const productCount= ()=>{
         let count = document.getElementById('count').value;
@@ -50,6 +52,7 @@ export default function  ProductListprops(props) {
                 </div>
             </div>
         </div>
+        <button className='btn btn-success' onClick={()=>{navigate('/checkout')}}>Go To Checkout</button>
     </div>
   )
 }

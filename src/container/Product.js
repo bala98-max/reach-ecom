@@ -1,25 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ProductList } from '../data/ProductList'
 import { addItems } from '../redux/reducer/cart'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate  } from 'react-router-dom'
 
 export default function Product() {
     const params  = useParams()
-    // console.log(params)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const list = useSelector((state)=>state.cart.list)
+
     const item = ProductList.find((element)=>{
         return element.id === parseInt(params.id)
     })
-    const dispatch = useDispatch()
+
+    const element = list.find((prod)=> prod.id === item.id)
+
     const addTocart = ()=>{
         dispatch(addItems(item))
     }
+
   return (
     <div className='product-dashboard'>
         <div className='product-img'>
             <img src={item.images[0]} alt={item.title} />
-            {/* <button><i className="fa-solid fa-circle-arrow-left"></i></button> */}
-            {/* <button><i className="fa-regular fa-circle-arrow-right"></i></button> */}
         </div>
         <div className='product-body'>
             <h3>{item.title}</h3>
@@ -31,7 +36,7 @@ export default function Product() {
                 {item.stock > 0 ? (
                     <>
                         <button className='btn btn-outline-success' style={{margin : "4px"}}>Buy Now</button>
-                        <button className='ms-3 btn btn-outline-success' onClick={addTocart}>Add To Cart</button>
+                        {element ? <button className='ms-3 btn btn-outline-warning' onClick={()=>{navigate('/cart')}}>Go To Cart</button> : <button className='ms-3 btn btn-outline-success' onClick={addTocart}>Add To Cart</button>}
                     </>
                 ):(
                     <button className='btn btn-outline-warning'>Out Of Stock</button>
