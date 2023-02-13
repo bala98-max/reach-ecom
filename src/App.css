@@ -124,6 +124,18 @@ body{
   flex-wrap: wrap;
 }
 
+.product-count{
+  border: none;
+  outline: none;
+  background: #227c3c;
+  color: #eee3f1;
+  border-radius: 5px;
+}
+
+.checkout-btn{
+  margin: 0 45% 2%;
+}
+
 .footer-div{
   background: #192734; 
   width: 100%;

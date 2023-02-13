@@ -12,29 +12,34 @@ export const cartSlice = createSlice({
             })
 
             if(present === undefined){
-                let payloadUpdate = {...payload}
+                let payloadUpdate = {...payload,count : 1}
                 payloadUpdate["amtDepQuty"] = payload.price
                 state.list = [...state.list,payloadUpdate]
             }
 
         },
         removeItems:(state,{payload})=>{
-            state.list = state.list.filter(x => x.id !== payload.id)
+            const ind = state.list.findIndex((product)=> product.id === payload.id)
+
+            state.list = [
+                ...state.list.slice(0,ind),
+                ...state.list.slice(ind + 1)
+            ]
         },
-        priceDepQty:(state,{payload})=>{
-            let test = state.list.map((prod)=>{
-                if(prod.id === payload.id){
-                    prod.amtDepQuty = payload.price
-                }
-                return prod
-            })
-            state.list = test
-            console.log('test',test)
+        modifyItem:( state,{ payload })=>{
+            const ind = state.list.findIndex((product)=> product.id === payload.id)
+            
+            state.list = [
+                ...state.list.slice(0,ind),
+                {...state.list[ind],count : payload.count},
+                ...state.list.slice(ind + 1)
+            ]
         }
+
     }
 })
 
-export const {addItems,removeItems,priceDepQty,presentInCart} = cartSlice.actions;
+export const {addItems,removeItems,modifyItem} = cartSlice.actions;
 export default cartSlice.reducer;
 
 
